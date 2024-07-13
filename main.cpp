@@ -4,6 +4,8 @@
 #include <cmath>
 #include <vector>
 
+#define PROGRAM_NAME "rgba2hex"
+
 typedef unsigned char channel; // color channel in decimal
 
 struct Color {
@@ -81,24 +83,37 @@ void channelsFormat(std::vector<channel>& channels, const std::string& format) {
 	}
 }
 
+void printHelp() {
+	std::cout <<	"Usage:\n"
+					"cat <file> | " << PROGRAM_NAME << "\n"
+					"cat <file> | " << PROGRAM_NAME << " <format>\n"
+					"format: xxxx where x can be \'d\' or \'p\'\n"
+					"d = decimal (0-255)\n"
+					"p = percentage (0-100%)\n"
+					"Example:\n"
+					"cat file | " << PROGRAM_NAME << " dddp\n";
+}
+
 int main(int argc, char** argv) {
 
-	std::string programName = argv[0];
-	std::string arg = argv[1];
 	std::string rgbaFormat = "dddp";
+
 	if (argc == 2) {
+		std::string arg = argv[1];
+
 		if (arg == "-h" || arg == "--help") {
-			std::cout <<	"Usage:\n"
-							"cat <file> | " << programName << "\n"
-							"cat <file> | " << programName << " <format>\n"
-							"format: xxxx where x can be \'d\' or \'p\'\n"
-							"d = decimal (0-255)\n"
-							"p = percentage (0-100%)\n"
-							"Example:\n"
-							"cat file | " << programName << " dddp\n";
+			printHelp();
 			exit(0);
 		}
-		rgbaFormat = argv[1];
+
+		rgbaFormat = arg;
+		std::regex formatRegex( R"((d|p){4})" );
+
+		if ( !(std::regex_match(rgbaFormat, formatRegex)) ) {
+			std::cout << "rgba format invalid!\n";
+			printHelp();
+			exit(1);
+		}
 	}
 
 	std::string line;
