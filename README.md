@@ -32,9 +32,10 @@ cat <file> | rgba2hex <format>
 ```
 <format> = xxxx
 ```
-> where x can be \'d\' or \'p\'\
+> where x can be 'd' or 'p'\
 > d = decimal (0-255)\
-> p = percentage (0-100%)
+> p = percentage (0-100%)\
+> default format is 'dddp' if <format> is omitted
 
 Example:
 ```bash

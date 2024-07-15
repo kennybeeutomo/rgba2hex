@@ -90,6 +90,7 @@ void printHelp() {
                  "format: xxxx where x can be \'d\' or \'p\'\n"
                  "d = decimal (0-255)\n"
                  "p = percentage (0-100%)\n"
+                 "default format is 'dddp' if <format> is omitted\n"
                  "Example:\n"
                  "cat file | " << PROGRAM_NAME << " dddp\n";
 }
