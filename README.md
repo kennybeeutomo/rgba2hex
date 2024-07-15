@@ -22,11 +22,11 @@ outputs:
 
 ### Usage:
 Usage:
-```
+```bash
 cat <file> | rgba2hex
 ```
 or
-```
+```bash
 cat <file> | rgba2hex <format>
 ```
 ```
@@ -37,6 +37,6 @@ cat <file> | rgba2hex <format>
 > p = percentage (0-100%)
 
 Example:
-```
+```bash
 cat file | rgba2hex dddp
 ```
