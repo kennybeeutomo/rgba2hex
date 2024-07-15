@@ -85,14 +85,14 @@ void channelsFormat(std::vector<channel>& channels, const std::string& format) {
 
 void printHelp() {
 	std::cout << "Usage:\n"
-                 "cat <file> | " << PROGRAM_NAME << "\n"
-                 "cat <file> | " << PROGRAM_NAME << " <format>\n"
-                 "format: xxxx where x can be \'d\' or \'p\'\n"
-                 "d = decimal (0-255)\n"
-                 "p = percentage (0-100%)\n"
-                 "default format is 'dddp' if <format> is omitted\n"
-                 "Example:\n"
-                 "cat file | " << PROGRAM_NAME << " dddp\n";
+	             "cat <file> | " << PROGRAM_NAME << "\n"
+	             "cat <file> | " << PROGRAM_NAME << " <format>\n"
+	             "format: xxxx where x can be \'d\' or \'p\'\n"
+	             "d = decimal (0-255)\n"
+	             "p = percentage (0-100%)\n"
+	             "default format is 'dddp' if <format> is omitted\n"
+	             "Example:\n"
+	             "cat file | " << PROGRAM_NAME << " dddp\n";
 }
 
 int main(int argc, char** argv) {
